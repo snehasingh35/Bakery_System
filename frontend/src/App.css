@@ -1,0 +1,207 @@
+.App {
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .App-header {
+    background-color: #8b4513;
+    color: white;
+    padding: 1rem;
+  }
+  
+  .App-header h1 {
+    margin: 0;
+    font-size: 2rem;
+  }
+  
+  .App-header nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    padding: 0;
+    margin-top: 1rem;
+  }
+  
+  .App-header nav ul li {
+    margin: 0 1rem;
+  }
+  
+  .App-header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .App-header nav ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  main {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  footer {
+    background-color: #8b4513;
+    color: white;
+    padding: 1rem;
+    margin-top: auto;
+  }
+  
+  .product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .product-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .product-card h3 {
+    margin-top: 0;
+    color: #8b4513;
+  }
+  
+  .product-card .price {
+    font-weight: bold;
+    color: #d4a76a;
+    font-size: 1.2rem;
+  }
+  
+  .order-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .order-form .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .order-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #8b4513;
+  }
+  
+  .order-form input,
+  .order-form select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .order-form button {
+    background-color: #8b4513;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .order-form button:hover {
+    background-color: #6d370f;
+  }
+  
+  .status-checker {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .status-result {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .status-pending {
+    color: #f39c12;
+  }
+  
+  .status-processing {
+    color: #3498db;
+  }
+  
+  .status-completed {
+    color: #2ecc71;
+  }
+  
+  .status-failed {
+    color: #e74c3c;
+  }
+  
+  .alert {
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  }
+  
+  .alert-success {
+    background-color: #d5f5e3;
+    color: #2ecc71;
+  }
+  
+  .alert-error {
+    background-color: #fadbd8;
+    color: #e74c3c;
+  }
+  
+  .order-items {
+    margin-top: 1.5rem;
+  }
+  
+  .item-selection {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .item-selection select {
+    flex: 2;
+  }
+  
+  .item-selection input {
+    flex: 1;
+    margin-left: 0.5rem;
+  }
+  
+  .item-selection button {
+    margin-left: 0.5rem;
+  }
+  
+  .add-item-btn {
+    background-color: #2ecc71;
+  }
+  
+  .remove-item-btn {
+    background-color: #e74c3c;
+  }
