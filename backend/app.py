@@ -8,6 +8,10 @@ import pika
 import redis
 import time
 from decimal import Decimal
+from dotenv import load_dotenv  # Import dotenv for loading .env variables
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Custom JSON Encoder
 class CustomJSONEncoder(Flask.json_encoder):
@@ -15,6 +19,7 @@ class CustomJSONEncoder(Flask.json_encoder):
         if isinstance(obj, Decimal):
             return float(obj)  # Convert Decimal to float
         return super().default(obj)
+
 
 app = Flask(__name__)
 CORS(app)
@@ -25,10 +30,10 @@ def get_db_connection():
     while retries > 0:
         try:
             conn = psycopg2.connect(
-                host=os.environ.get('POSTGRES_HOST', 'db'),
-                database=os.environ.get('POSTGRES_DB', 'bakery'),
-                user=os.environ.get('POSTGRES_USER', 'postgres'),
-                password=os.environ.get('POSTGRES_PASSWORD', 'postgres')
+                host=os.getenv('POSTGRES_HOST', 'db'),
+                database=os.getenv('POSTGRES_DB', 'bakery'),
+                user=os.getenv('POSTGRES_USER', 'postgres'),
+                password=os.getenv('POSTGRES_PASSWORD', 'postgres')
             )
             return conn
         except psycopg2.OperationalError as err:
@@ -44,7 +49,7 @@ def get_rabbitmq_connection():
     while retries > 0:
         try:
             connection = pika.BlockingConnection(
-                pika.ConnectionParameters(host='rabbitmq')
+                pika.ConnectionParameters(host=os.getenv('RABBITMQ_HOST', 'rabbitmq'))
             )
             return connection
         except pika.exceptions.AMQPConnectionError:
@@ -55,7 +60,7 @@ def get_rabbitmq_connection():
     raise Exception("Failed to connect to RabbitMQ after multiple attempts")
 
 # Redis connection
-redis_client = redis.Redis(host='redis', port=6379, db=0)
+redis_client = redis.Redis(host=os.getenv('REDIS_HOST', 'redis'), port=6379, db=0)
 
 # # Custom JSON encoder for Decimal
 # class CustomJSONEncoder(json.JSONEncoder):

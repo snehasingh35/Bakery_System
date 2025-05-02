@@ -39,13 +39,6 @@ RabbitMQ was selected for order processing because:
 
 ## Container Configuration
 
-### Health Checks
-
-Health checks were implemented for all services to:
-- Ensure proper startup and readiness of containers
-- Allow Docker to restart failed services
-- Provide better visibility into system health
-- Enable proper dependency management
 
 ### Volume Mounts
 
